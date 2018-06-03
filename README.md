@@ -1,6 +1,7 @@
-# shopee
+# basicauth
 
-> A Vue.js project
+> A Vue.js SPA using firebase authentication and database.<br/>
+Check out the [demo](http://sherlybasicauth.s3-website-ap-southeast-1.amazonaws.com/)
 
 ## Build Setup
 
