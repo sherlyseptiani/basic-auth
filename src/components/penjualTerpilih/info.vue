@@ -49,7 +49,7 @@ export default {
       registerPreferredSeller() {
           if(!this.$store.getters.isAuthenticated) this.$router.push('/signIn')
           else {
-                dbAxios.get('/preferredSellers.json?orderBy="username"&equalTo="' + this.$store.getters.user.username + '"')
+                dbAxios.get('/preferredSellers.json?orderBy="email"&equalTo="' + this.$store.state.email + '"')
                 .then(res => {
                     let notYetRegistered = Object.keys(res.data).length === 0
                     if(notYetRegistered) this.$router.push('/penjualTerpilih/signUp')

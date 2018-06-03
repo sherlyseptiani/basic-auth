@@ -29,7 +29,6 @@
                 </div>
 
             </form>
-
         </div>
     </div>
 </div>
@@ -95,12 +94,12 @@ export default {
                 .then(res=>{
                     this.isLoading = false
                     this.setNotif("success","Berhasil", "Anda sudah berhasil masuk")
-                    return dbAxios.get('/preferredSellers.json?orderBy="username"&equalTo="' + this.$store.getters.user.username + '"')
+                    return dbAxios.get('/preferredSellers.json?orderBy="email"&equalTo="' + this.$store.state.email + '"')
                 })
                 .then(res => {
                     let notYetRegistered = Object.keys(res.data).length === 0
-                    // if(notYetRegistered) this.$router.push('/penjualTerpilih/signUp')
-                    // else window.location = "http://shopee.co.id"
+                    if(notYetRegistered) this.$router.push('/penjualTerpilih/signUp')
+                    else window.location = "http://shopee.co.id"
                 })
                 .catch(error => {
                     console.log(error)

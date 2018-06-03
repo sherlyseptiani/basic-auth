@@ -120,7 +120,7 @@ export default new Vuex.Store({
       if (!state.idToken) {
         return
       }
-      return dbAxios.get('/users.json' + '?auth=' + state.idToken)
+      return dbAxios.get('/users.json' + '?auth=' + state.idToken + '&orderBy="email"&equalTo="' + state.email + '"')
         .then(res => {
           const data = res.data
           const users = []

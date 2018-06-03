@@ -79,8 +79,6 @@
             <p>{{ notif.message }}</p>
         </div>
 
-
-
     </div>
 
 </div>
@@ -111,7 +109,7 @@ export default {
                 fotoWajah:'',
                 fotoKTP:'',
                 setuju:false,
-                username:''
+                email:''
             },
             notif: {
                 show:false,
@@ -132,7 +130,7 @@ export default {
             },
             fotoWajah: { required },
             fotoKTP: { required },
-            username : { required },
+            email : { required },
             setuju: {
                 isTrue(val) {
                     return val
@@ -142,7 +140,7 @@ export default {
     },
     methods: {
         register() {
-            this.formData.username = this.$store.getters.user.username
+            this.formData.email = this.$store.state.email
             this.$v.$touch()
             if(this.$v.$invalid){
                 this.setNotif("error","Form invalid", "Data yang Anda masukkan salah")
